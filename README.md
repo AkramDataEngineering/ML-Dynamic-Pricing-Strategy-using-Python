@@ -59,12 +59,12 @@ A simple, interpretable approach uses **multipliers**:
        riders > pctile_high, riders / pctile_high, riders / pctile_low
    )
 2. Compute supply multiplier (inverse relation):
-```py
+   ```py
 supply_multiplier = np.where(
     drivers > pctile_low, pctile_high / drivers, pctile_low / drivers
 )
 
 3. Adjust price with thresholds to avoid extreme swings:
-```py
-   adjusted_cost = historical_cost * max(demand_multiplier, low_threshold) * max(supply_multiplier, high_threshold)
+   ```py
+      adjusted_cost = historical_cost * max(demand_multiplier, low_threshold) * max(supply_multiplier, high_threshold)
 
